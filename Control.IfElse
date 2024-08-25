@@ -1,1 +1,9 @@
-https://www.w3schools.com/java/tryjava.asp?filename=demo_for_loop_even
+public class Main {
+  public static void main(String[] args) {
+    int x = 20;
+    int y = 18;
+    if (x > y) {
+      System.out.println("x is greater than y");
+    }  
+  }
+}

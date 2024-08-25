@@ -1,1 +1,8 @@
-https://www.w3schools.com/java/tryjava.asp?filename=demo_array_for_each
+public class Main {
+  public static void main(String[] args) {
+    String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+    for (String i : cars) {
+      System.out.println(i);
+    }    
+  }
+}

@@ -1,25 +1,25 @@
+package com.mycompany.app;
+
 public class App {
     public static void main(String[] args) {
-        // Book
-        Book book = new Book("1984", "George Orwell");
-        book.printDetails();
+        // DisruptLecture
+        DisruptLecture disruptLecture = new DisruptLecture();
+        disruptLecture.disrupt();
 
-        // Time
-        Time time = new Time(10, 30);
-        time.displayTime();
+        // TestArithmetic
+        TestArithmetic arithmetic = new TestArithmetic();
+        int sum = arithmetic.add(10, 5);
+        int difference = arithmetic.subtract(10, 5);
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
 
-        // Recursion
-        Recursion recursion = new Recursion();
-        System.out.println("Factorial of 5: " + recursion.factorial(5));
-
-        // NNCollection
-        NNCollection nnCollection = new NNCollection();
-        nnCollection.addNumber(1);
-        nnCollection.addNumber(2);
-        nnCollection.printNumbers();
-
-        // NameNumber
-        NameNumber nameNumber = new NameNumber("Alice", 42);
-        nameNumber.printInfo();
+        // GlyphTest
+        GlyphTest glyphTest = new GlyphTest(5);
+        
+        // Transmogrify
+        Transmogrify transmogrify = new Transmogrify();
+        transmogrify.perform();  // HappyActor acts
+        transmogrify.change();   // Switch to SadActor
+        transmogrify.perform();  // SadActor acts
     }
 }

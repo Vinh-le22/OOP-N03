@@ -6,8 +6,9 @@
 - Nguyễn Anh Tuấn: Phát triển phần mềm toàn diện.
 - Lê Quang Vinh: Phát triển phần mềm toàn diện.
 ## Chức năng chính
+
 - Thêm, sửa, xóa phòng.
 - Liệt kê phòng còn trống hay không còn trống.
 - Có chức năng đặt phòng, trả phòng.
 ## UML Dự án
-
+![Sơ đồ hoạt động](https://github.com/user-attachments/assets/d9b7d939-9db3-47d8-b17a-6e3e06cb9355)

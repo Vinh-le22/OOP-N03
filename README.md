@@ -20,3 +20,19 @@
 ![Sơ đồ trạng thái](https://github.com/user-attachments/assets/e2b220c6-b293-470a-8070-40547f0d4afb)
 ## 1.2.3: activity diagram
 ![Sơ đồ hoạt động](https://github.com/user-attachments/assets/d9b7d939-9db3-47d8-b17a-6e3e06cb9355)
+## Giao diện ban đầu của dự án
+![z5870803186167_9345528cbc7af324e48ff51403eae09d](https://github.com/user-attachments/assets/52cd2e04-b1cf-46b1-81b8-96a7d717d1b9)
+## GitHub Pages Dự Án
+
+[Truy cập dự án tại đây]([https://example.com](https://github.com/Vinh-le22/Team-18-OOP-N03))
+
+## Cách cài đặt
+1. Clone repository từ GitHub:
+
+    ```bash
+    git clone -b https://github.com/Vinh-le22/Team-18-OOP-N03.git
+    ```
+
+     
+
+

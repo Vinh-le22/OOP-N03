@@ -11,4 +11,12 @@
 - Liệt kê phòng còn trống hay không còn trống.
 - Có chức năng đặt phòng, trả phòng.
 ## UML Dự án
+- 1.1 UML Component Diagram
+![Sơ đồ cấu trúc](https://github.com/user-attachments/assets/6aa4bc2a-658b-4436-9503-b235d2e45694)
+- 1.2 UML Sequence Diagram
+- 1.2.1: sequence diagram
+![Sơ đồ tuần tự](https://github.com/user-attachments/assets/2086dfb6-d092-467f-9b5c-b059e6378843)
+- 1.2.2: state diagram
+- ![Sơ đồ trạng thái](https://github.com/user-attachments/assets/e2b220c6-b293-470a-8070-40547f0d4afb)
+- 1.2.3: activity diagram
 ![Sơ đồ hoạt động](https://github.com/user-attachments/assets/d9b7d939-9db3-47d8-b17a-6e3e06cb9355)

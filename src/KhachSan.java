@@ -1,47 +1,60 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class KhachSan {
-    private List<Phong> danhSachPhong;
-    private List<KhachHang> danhSachKhach;
+    private ArrayList<Phong> danhSachPhong;
+    private ArrayList<KhachHang> danhSachKhachHang; // Thêm biến này
 
     public KhachSan() {
         danhSachPhong = new ArrayList<>();
-        danhSachKhach = new ArrayList<>();
+        danhSachKhachHang = new ArrayList<>(); // Khởi tạo danh sách khách hàng
+        khoiTaoPhong();
     }
 
-    // Thêm phòng vào danh sách
-    public void themPhong(Phong phong) {
-        danhSachPhong.add(phong);
+    // Khởi tạo danh sách phòng
+    private void khoiTaoPhong() {
+        for (int i = 101; i <= 120; i++) {
+            danhSachPhong.add(new Phong(String.valueOf(i)));
+        }
     }
 
     // Lấy danh sách phòng
-    public List<Phong> layDanhSachPhong() {
+    public ArrayList<Phong> layDanhSachPhong() {
         return danhSachPhong;
     }
 
-    // Đặt phòng cho khách
-    public void datPhongChoKhach(int soPhong, KhachHang khachHang) {
+    // Tìm phòng theo số phòng
+    public Phong timPhong(String soPhong) {
         for (Phong phong : danhSachPhong) {
-            if (phong.laySoPhong() == soPhong && phong.kiemTraPhongTrong()) {
-                phong.datLaiTrangThaiPhong(false); // Cập nhật phòng thành đã đặt
-                danhSachKhach.add(khachHang); // Thêm khách vào danh sách
-                System.out.println("Phòng " + soPhong + " đã được đặt cho " + khachHang.layTenKhach());
-                return;
+            if (phong.getSoPhong().equals(soPhong)) {
+                return phong;
             }
         }
-        System.out.println("Phòng " + soPhong + " không thể đặt.");
+        return null;
     }
 
-    // Hiển thị thông tin khách hàng trong phòng
-    public void hienThongTinKhach(int soPhong) {
+    // Tìm phòng theo mã đặt
+    public Phong timPhongTheoMaDat(String maDatPhong) {
         for (Phong phong : danhSachPhong) {
-            if (phong.laySoPhong() == soPhong && !phong.kiemTraPhongTrong()) {
-                System.out.println("Thông tin khách hàng trong phòng " + soPhong + ": ");
-                // Ở đây có thể lấy thông tin khách từ danh sách khách nếu liên kết
-                return;
+            // Kiểm tra nếu mã đặt phòng khớp và phòng đã được đặt (không còn trống)
+            if (phong.getMaDatPhong() != null && phong.getMaDatPhong().equals(maDatPhong) && !phong.isTrangThai()) {
+                return phong;
             }
         }
-        System.out.println("Phòng " + soPhong + " hiện đang trống.");
+        return null;
+    }
+
+    // Thêm phương thức để thêm khách hàng mới
+    public void themKhachHang(KhachHang khachHang) {
+        danhSachKhachHang.add(khachHang);
+    }
+
+    // Thêm phương thức để tìm khách hàng theo mã
+    public KhachHang timKhachHang(String maKhachHang) {
+        for (KhachHang khachHang : danhSachKhachHang) {
+            if (khachHang.getMaKhachHang().equals(maKhachHang)) {
+                return khachHang;
+            }
+        }
+        return null;
     }
 }

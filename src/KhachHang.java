@@ -1,24 +1,23 @@
 public class KhachHang {
+    private String maKhachHang; // Thêm mã khách hàng
     private String tenKhach;
     private String diaChi;
     private String soDienThoai;
-    private String maKhachHang;
 
-    public KhachHang(String tenKhach, String diaChi, String soDienThoai, String maKhachHang) {
+    public KhachHang(String tenKhach, String diaChi, String soDienThoai) {
+        this.maKhachHang = java.util.UUID.randomUUID().toString(); // Tạo mã khách hàng ngẫu nhiên
         this.tenKhach = tenKhach;
         this.diaChi = diaChi;
         this.soDienThoai = soDienThoai;
-        this.maKhachHang = maKhachHang;
     }
 
-    // Lấy tên khách
-    public String layTenKhach() {
-        return tenKhach;
+    public String getMaKhachHang() {
+        return maKhachHang;
     }
 
-    // Lấy thông tin khách
-    public void inThongTinKhach() {
-        System.out.println("Tên khách: " + tenKhach + ", Địa chỉ: " + diaChi +
-                ", Số điện thoại: " + soDienThoai + ", Mã khách hàng: " + maKhachHang);
+    public String getThongTinKhachHang() {
+        return "Tên khách hàng: " + tenKhach + "\n" +
+               "Địa chỉ: " + diaChi + "\n" +
+               "Số điện thoại: " + soDienThoai;
     }
 }

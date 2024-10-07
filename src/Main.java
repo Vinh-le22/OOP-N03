@@ -1,53 +1,36 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Main extends Application {
 
+    private KhachSan khachSan;
+
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Quản Lý Khách Sạn");
+        khachSan = new KhachSan();
 
-        // Tạo layout VBox để dàn các nút
-        VBox vbox = new VBox();
-        vbox.setSpacing(20); // Khoảng cách giữa các nút
-        vbox.setStyle("-fx-padding: 20;"); // Padding cho VBox
+        // Tạo giao diện chính với 4 nút
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(20));
+        grid.setVgap(10);
+        grid.setHgap(10);
 
-        // Tạo các nút cho menu
-        Button button1 = new Button("Liệt Kê Phòng Trống");
-        button1.setOnAction(e -> {
-            // Logic cho liệt kê phòng trống
-            System.out.println("Liệt kê phòng trống...");
-        });
-
-        Button button2 = new Button("Đặt Phòng");
-        button2.setOnAction(e -> {
-            // Logic cho đặt phòng
-            System.out.println("Đặt phòng...");
-        });
-
-        Button button3 = new Button("Hủy Đặt Phòng");
-        button3.setOnAction(e -> {
-            // Logic cho hủy đặt phòng
-            System.out.println("Hủy đặt phòng...");
-        });
-
-        Button button4 = new Button("Thông Tin Khách Hàng");
-        button4.setOnAction(e -> {
-            // Logic cho hiển thị thông tin khách hàng
-            System.out.println("Thông tin khách hàng...");
-        });
-
-        // Thêm các nút vào VBox
-        vbox.getChildren().addAll(button1, button2, button3, button4);
-
-        // Tạo scene và hiển thị
-        Scene scene = new Scene(vbox, 300, 250);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+        Button btnLietKePhong = new Button("Liệt kê phòng trống");
+        Button btnDatPhong = new Button("Đặt phòng");
+        Button btnHuyDatPhong = new Button("Hủy đặt phòng");
+        Button btnThongTinKhachHang = new Button("Thông tin khách hàng");
+        
+        grid.add(btnLietKePhong, 0, 0);
+        grid.add(btnDatPhong, 1, 0);
+        grid.add(btnHuyDatPhong, 0, 1);
+        grid.add(btnThongTinKhachHang, 1, 1);
 
     public static void main(String[] args) {
         launch(args);

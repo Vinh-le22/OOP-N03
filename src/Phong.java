@@ -1,30 +1,65 @@
+import java.time.LocalDate;
+
 public class Phong {
-    private int soPhong;
-    private boolean trangThai; // true: phòng trống, false: phòng đã đặt
+    private String soPhong;
+    private boolean trangThai; // true = trống, false = đã đặt
+    private KhachHang khachHang;
+    private LocalDate ngayDat;
+    private String maDatPhong;
+    private String maDatMacDinh;
 
-    public Phong(int soPhong, boolean trangThai) {
+    public Phong(String soPhong) {
         this.soPhong = soPhong;
-        this.trangThai = trangThai;
+        this.trangThai = true;
+        this.maDatMacDinh = String.format("%03d", Integer.parseInt(soPhong) - 100);
     }
 
-    // Phương thức kiểm tra phòng có trống không
-    public boolean kiemTraPhongTrong() {
-        return trangThai;
-    }
-
-    // Phương thức đặt lại trạng thái phòng
-    public void datLaiTrangThaiPhong(boolean trangThai) {
-        this.trangThai = trangThai;
-    }
-
-    // Lấy số phòng
-    public int laySoPhong() {
+    // Getters
+    public String getSoPhong() {
         return soPhong;
     }
 
-    // In thông tin phòng
-    public void inThongTinPhong() {
-        String tinhTrang = trangThai ? "Phòng trống" : "Phòng đã đặt";
-        System.out.println("Số phòng: " + soPhong + ", Tình trạng: " + tinhTrang);
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public LocalDate getNgayDat() {
+        return ngayDat;
+    }
+
+    public String getMaDatPhong() {
+        return maDatPhong;
+    }
+
+    public String getMaDatMacDinh() {
+        return maDatMacDinh;
+    }
+
+    // Cập nhật phương thức đặt phòng
+    public String datPhong(String tenKhachHang, String soDienThoai, String diaChi, LocalDate ngayDat) {
+        if (this.trangThai) {
+            this.trangThai = false;
+            this.khachHang = new KhachHang(tenKhachHang, diaChi, soDienThoai);
+            this.ngayDat = ngayDat;
+            this.maDatPhong = this.maDatMacDinh;
+            return this.maDatPhong;
+        }
+        return null;
+    }
+
+    // Cập nhật phương thức hủy đặt phòng
+    public void huyDatPhong() {
+        this.trangThai = true;
+        this.khachHang = null;
+        this.ngayDat = null;
+        this.maDatPhong = null; // Đặt lại mã đặt phòng thành null khi hủy
+    }
+
+    public void setMaDatPhong(String maDatPhong) {
+        this.maDatPhong = maDatPhong;
     }
 }

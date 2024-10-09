@@ -139,6 +139,35 @@ public class Main extends Application {
         }
         return true;
     }
+
+     // Phương thức hủy đặt phòng
+    private void huyDatPhong() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Hủy đặt phòng");
+        dialog.setHeaderText("Nhập mã đặt phòng:");
+        dialog.setContentText("Mã đặt phòng:");
+
+        dialog.showAndWait().ifPresent(maDatPhong -> {
+            Phong phong = khachSan.timPhongTheoMaDat(maDatPhong);
+            if (phong != null && !phong.isTrangThai()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Xác nhận hủy đặt phòng");
+                alert.setHeaderText("Thông tin đặt phòng:");
+                alert.setContentText("Số phòng: " + phong.getSoPhong() + "\n" +
+                                     "Thông tin khách hàng:\n" + phong.getKhachHang().getThongTinKhachHang() + "\n" +
+                                     "Ngày đặt: " + phong.getNgayDat().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        phong.huyDatPhong();
+                        showAlert("Thông báo", "Hủy đặt phòng thành công!", Alert.AlertType.INFORMATION);
+                    }
+                });
+            } else {
+                showAlert("Lỗi", "Không tìm thấy phòng đã đặt với mã này hoặc phòng đã trống!", Alert.AlertType.ERROR);
+            }
+        });
+    }
     
     public static void main(String[] args) {
         launch(args);

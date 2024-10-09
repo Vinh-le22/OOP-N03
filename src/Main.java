@@ -123,6 +123,22 @@ public class Main extends Application {
         });
     }
 
+    // Phương thức kiểm tra thông tin đặt phòng
+    private boolean kiemTraThongTinDatPhong(String soPhong, String soDienThoai, LocalDate ngayDat) {
+        if (!soPhong.matches("1[01][0-9]|120")) {
+            showAlert("Lỗi", "Số phòng không hợp lệ (101-120)!", Alert.AlertType.ERROR);
+            return false;
+        }
+        if (!soDienThoai.matches("\\d{10}")) {
+            showAlert("Lỗi", "Số điện thoại không hợp lệ (10 chữ số)!", Alert.AlertType.ERROR);
+            return false;
+        }
+        if (ngayDat.isBefore(LocalDate.now())) {
+            showAlert("Lỗi", "Ngày đặt phòng không hợp lệ!", Alert.AlertType.ERROR);
+            return false;
+        }
+        return true;
+    }
     
     public static void main(String[] args) {
         launch(args);

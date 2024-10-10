@@ -168,7 +168,38 @@ public class Main extends Application {
             }
         });
     }
-    
+
+    // Phương thức hiển thị thông tin khách hàng
+    private void hienThiThongTinKhachHang() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Thông tin khách hàng");
+        dialog.setHeaderText("Nhập số phòng:");
+        dialog.setContentText("Số phòng:");
+
+        dialog.showAndWait().ifPresent(soPhong -> {
+            Phong phong = khachSan.timPhong(soPhong);
+            if (phong != null && !phong.isTrangThai()) {
+                KhachHang khachHang = phong.getKhachHang();
+                if (khachHang != null) {
+                    showAlert("Thông tin khách hàng", khachHang.getThongTinKhachHang(), Alert.AlertType.INFORMATION);
+                } else {
+                    showAlert("Lỗi", "Không có thông tin khách hàng cho phòng này!", Alert.AlertType.ERROR);
+                }
+            } else {
+                showAlert("Lỗi", "Phòng không tồn tại hoặc chưa được đặt!", Alert.AlertType.ERROR);
+            }
+        });
+    }
+
+    // Phương thức hiển thị thông báo
+    private void showAlert(String title, String content, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
